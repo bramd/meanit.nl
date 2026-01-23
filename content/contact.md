@@ -1,7 +1,6 @@
 ---
 title: "Contact"
 description: "Neem contact op met Mean IT Consultancy"
-translationKey: "contact"
 ---
 
 Wilt u meer weten over onze diensten of heeft u een vraag? Neem gerust contact met ons op.

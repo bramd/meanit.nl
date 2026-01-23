@@ -1,7 +1,7 @@
 ---
 title: "About us"
 description: "About Mean IT Consultancy"
-translationKey: "about"
+url: /en/about/
 ---
 
 Mean IT Consultancy is a consultancy focused on accessibility and software development.

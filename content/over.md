@@ -1,7 +1,6 @@
 ---
 title: "Over ons"
 description: "Over Mean IT Consultancy"
-translationKey: "about"
 ---
 
 Mean IT Consultancy is een adviesbureau gericht op toegankelijkheid en softwareontwikkeling.

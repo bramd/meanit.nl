@@ -7,20 +7,16 @@ defaultContentLanguageInSubdir = false
   [languages.nl]
     languageName = 'Nederlands'
     weight = 1
-    contentDir = 'content'
     [languages.nl.menus]
       [[languages.nl.menus.main]]
-        identifier = 'home'
         name = 'Home'
         pageRef = '/'
         weight = 1
       [[languages.nl.menus.main]]
-        identifier = 'over'
         name = 'Over'
         pageRef = '/over'
         weight = 2
       [[languages.nl.menus.main]]
-        identifier = 'contact'
         name = 'Contact'
         pageRef = '/contact'
         weight = 3
@@ -30,20 +26,16 @@ defaultContentLanguageInSubdir = false
   [languages.en]
     languageName = 'English'
     weight = 2
-    contentDir = 'content/en'
     [languages.en.menus]
       [[languages.en.menus.main]]
-        identifier = 'home'
         name = 'Home'
         pageRef = '/'
         weight = 1
       [[languages.en.menus.main]]
-        identifier = 'about'
         name = 'About'
-        pageRef = '/about'
+        pageRef = '/over'
         weight = 2
       [[languages.en.menus.main]]
-        identifier = 'contact'
         name = 'Contact'
         pageRef = '/contact'
         weight = 3
