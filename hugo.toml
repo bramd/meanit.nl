@@ -7,6 +7,7 @@ defaultContentLanguageInSubdir = false
   [languages.nl]
     languageName = 'Nederlands'
     weight = 1
+    contentDir = 'content'
     [languages.nl.menus]
       [[languages.nl.menus.main]]
         identifier = 'home'
@@ -29,6 +30,7 @@ defaultContentLanguageInSubdir = false
   [languages.en]
     languageName = 'English'
     weight = 2
+    contentDir = 'content/en'
     [languages.en.menus]
       [[languages.en.menus.main]]
         identifier = 'home'
