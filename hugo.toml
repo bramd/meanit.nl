@@ -1,0 +1,56 @@
+baseURL = 'https://meanit.nl/'
+title = 'Mean IT Consultancy'
+defaultContentLanguage = 'nl'
+defaultContentLanguageInSubdir = false
+
+[languages]
+  [languages.nl]
+    languageName = 'Nederlands'
+    weight = 1
+    [languages.nl.menus]
+      [[languages.nl.menus.main]]
+        identifier = 'home'
+        name = 'Home'
+        pageRef = '/'
+        weight = 1
+      [[languages.nl.menus.main]]
+        identifier = 'over'
+        name = 'Over'
+        pageRef = '/over'
+        weight = 2
+      [[languages.nl.menus.main]]
+        identifier = 'contact'
+        name = 'Contact'
+        pageRef = '/contact'
+        weight = 3
+    [languages.nl.params]
+      description = 'Toegankelijkheid en development consultancy'
+
+  [languages.en]
+    languageName = 'English'
+    weight = 2
+    [languages.en.menus]
+      [[languages.en.menus.main]]
+        identifier = 'home'
+        name = 'Home'
+        pageRef = '/'
+        weight = 1
+      [[languages.en.menus.main]]
+        identifier = 'about'
+        name = 'About'
+        pageRef = '/about'
+        weight = 2
+      [[languages.en.menus.main]]
+        identifier = 'contact'
+        name = 'Contact'
+        pageRef = '/contact'
+        weight = 3
+    [languages.en.params]
+      description = 'Accessibility and development consultancy'
+
+[module]
+  [[module.imports]]
+    path = "github.com/theNewDynamic/gohugo-theme-ananke/v2"
+
+[params]
+  show_reading_time = false
