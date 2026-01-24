@@ -49,3 +49,6 @@ defaultContentLanguageInSubdir = false
 [params]
   show_reading_time = false
   custom_css = ["custom.css"]
+
+[params.ananke]
+  show_recent_posts = false
