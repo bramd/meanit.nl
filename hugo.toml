@@ -48,3 +48,4 @@ defaultContentLanguageInSubdir = false
 
 [params]
   show_reading_time = false
+  custom_css = ["custom.css"]
