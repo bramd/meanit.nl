@@ -1,5 +1,5 @@
 ---
-title: "Mean IT Consultancy"
+title: "Welkom"
 description: "Toegankelijkheid en development consultancy"
 ---
 

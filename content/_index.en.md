@@ -1,5 +1,5 @@
 ---
-title: "Mean IT Consultancy"
+title: "Welcome"
 description: "Accessibility and development consultancy"
 ---
 
