@@ -1,6 +1,5 @@
 ---
 title: "Welkom"
-description: "Toegankelijkheid en development consultancy"
 ---
 
 Welkom bij Mean IT Consultancy. Wij zijn gespecialiseerd in toegankelijkheid en softwareontwikkeling.

@@ -1,6 +1,5 @@
 ---
 title: "Welcome"
-description: "Accessibility and development consultancy"
 ---
 
 Welcome to Mean IT Consultancy. We specialize in accessibility and software development.
