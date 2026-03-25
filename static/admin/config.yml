@@ -5,41 +5,53 @@ backend:
   base_url: https://meanit-cms-auth.fly.dev
   auth_endpoint: /auth
 
-i18n:
-  structure: multiple_files
-  locales: [nl, en]
-  default_locale: nl
-
 media_folder: static/images
 public_folder: /images
 
 collections:
   - name: pages
     label: Pages
-    i18n: true
     files:
-      - name: homepage
-        label: Homepage
-        file: content/_index.md
-        i18n: true
+      - name: homepage-nl
+        label: "Homepage (NL)"
+        file: content/_index.nl.md
         fields:
-          - { label: Title, name: title, widget: string, i18n: true }
-          - { label: Full title, name: full_title, widget: boolean, default: true, i18n: duplicate }
-          - { label: Body, name: body, widget: markdown, i18n: true }
-      - name: about
-        label: Over / About
-        file: content/over.md
-        i18n: true
+          - { label: Title, name: title, widget: string }
+          - { label: Full title, name: full_title, widget: boolean, default: true }
+          - { label: Body, name: body, widget: markdown }
+      - name: homepage-en
+        label: "Homepage (EN)"
+        file: content/_index.en.md
         fields:
-          - { label: Title, name: title, widget: string, i18n: true }
-          - { label: Description, name: description, widget: string, i18n: true }
-          - { label: URL, name: url, widget: string, i18n: true, required: false }
-          - { label: Body, name: body, widget: markdown, i18n: true }
-      - name: contact
-        label: Contact
-        file: content/contact.md
-        i18n: true
+          - { label: Title, name: title, widget: string }
+          - { label: Full title, name: full_title, widget: boolean, default: true }
+          - { label: Body, name: body, widget: markdown }
+      - name: about-nl
+        label: "Over ons (NL)"
+        file: content/over.nl.md
         fields:
-          - { label: Title, name: title, widget: string, i18n: true }
-          - { label: Description, name: description, widget: string, i18n: true }
-          - { label: Body, name: body, widget: markdown, i18n: true }
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: string }
+          - { label: Body, name: body, widget: markdown }
+      - name: about-en
+        label: "About us (EN)"
+        file: content/over.en.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: string }
+          - { label: URL, name: url, widget: string }
+          - { label: Body, name: body, widget: markdown }
+      - name: contact-nl
+        label: "Contact (NL)"
+        file: content/contact.nl.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: string }
+          - { label: Body, name: body, widget: markdown }
+      - name: contact-en
+        label: "Contact (EN)"
+        file: content/contact.en.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: string }
+          - { label: Body, name: body, widget: markdown }
