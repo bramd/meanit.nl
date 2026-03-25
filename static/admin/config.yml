@@ -2,8 +2,8 @@ backend:
   name: github
   repo: bramd/meanit.nl
   branch: main
-  auth_type: pkce
-  app_id: Ov23liYWTtoGCIyfScje
+  base_url: https://meanit-cms-auth.fly.dev
+  auth_endpoint: /auth
 
 media_folder: static/images
 public_folder: /images
