@@ -1,10 +1,8 @@
 ---
-title: "Welcome to Mean IT Consultancy"
+title: Welcome to Mean IT Consultancy
 full_title: true
 ---
 
-Welcome to Mean IT Consultancy. We specialize in accessibility and software development.
+Welcome to Mean IT Consultancy. Through this company I, Bram Duvigneau, offer my services regarding accessibility and software development.
 
-We help organizations build digital products that are accessible to everyone.
-
-[Get in touch](/en/contact/)
+Do you have a good idea or an interesting project regarding accessibility? Please [get in touch](/en/contact/) and let's have a chat or grab a coffee.
