@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demo: inhoud bij hover of focus</title>
+<style>
+  body { margin: 0; font: 20px/1.5 system-ui, sans-serif; color: #1c2b33; }
+  main { max-width: 860px; margin: 0 auto; padding: 24px; }
+  section { border-top: 2px solid #123a4f; padding: 16px 0 40px; }
+  :focus-visible { outline: 3px solid #0b57d0; outline-offset: 2px; }
+  .term { position: relative; display: inline-block; }
+  .tip { position: absolute; left: 0; top: 100%; width: 320px; background: #123a4f; color: #fff;
+         padding: 10px 14px; border-radius: 4px; z-index: 2; }
+  .slecht .tip { display: none; margin-top: 16px; }
+  .slecht .term:hover .tip { display: block; }
+  .goed .tip[hidden] { display: none; }
+  button { font: inherit; padding: 4px 12px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Inhoud bij hover of focus (1.4.13)</h1>
+  <p>Drie eisen: wegklikbaar (Esc), aanwijsbaar (je kunt met de muis erop), blijvend (tot je weggaat of Esc drukt).</p>
+
+  <section class="slecht">
+    <h2>Fout</h2>
+    <p>Het <span class="term"><u>kadastraal perceel</u><span class="tip">Een stuk grond met een eigen nummer in de registratie.</span></span>
+       ligt in de gemeente Apeldoorn. Een andere regel tekst die onder de tip verdwijnt.</p>
+    <p>Alleen hover, verdwijnt zodra je de muis naar de tip beweegt (er zit een gat), geen Esc, niet met het toetsenbord.</p>
+  </section>
+
+  <section class="goed">
+    <h2>Goed</h2>
+    <p>Het <span class="term" id="term"><button type="button" id="tipknop" aria-describedby="tip2">kadastraal perceel</button><span class="tip" id="tip2" role="tooltip" hidden>Een stuk grond met een eigen nummer in de registratie.</span></span>
+       ligt in de gemeente Apeldoorn. Een andere regel tekst die onder de tip verdwijnt.</p>
+    <p>Werkt met hover en focus, je kunt met de muis op de tip, Esc sluit zonder de focus te verplaatsen.</p>
+  </section>
+</main>
+<script>
+  var t = document.getElementById('term'), tip = document.getElementById('tip2'), k = document.getElementById('tipknop');
+  function toon() { tip.hidden = false; }
+  function verberg() { tip.hidden = true; }
+  t.addEventListener('mouseenter', toon);
+  t.addEventListener('mouseleave', function () { if (document.activeElement !== k) verberg(); });
+  k.addEventListener('focus', toon);
+  k.addEventListener('blur', verberg);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') verberg(); });
+</script>
+</body>
+</html>

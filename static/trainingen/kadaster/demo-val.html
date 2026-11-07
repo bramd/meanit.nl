@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demo: toetsenbordval en dialogen</title>
+<style>
+  body { margin: 0; font: 20px/1.5 system-ui, sans-serif; color: #1c2b33; background: #fff; }
+  main { max-width: 860px; margin: 0 auto; padding: 24px; }
+  section { border-top: 2px solid #123a4f; padding: 16px 0 32px; }
+  :focus-visible { outline: 3px solid #0b57d0; outline-offset: 2px; }
+  .veld { min-height: 110px; border: 1px solid #5a6b75; padding: 8px; white-space: pre-wrap; tab-size: 4; }
+  button { font: inherit; padding: 6px 14px; }
+  .overlay { display: none; position: fixed; inset: 0; background: #0009; }
+  .overlay.open { display: flex; align-items: center; justify-content: center; }
+  .doos, dialog { background: #fff; padding: 24px; width: min(440px, 90vw); border-radius: 6px; border: 0; }
+  dialog::backdrop { background: #0009; }
+  label { display: block; margin: 12px 0; }
+  input { font: inherit; display: block; width: 100%; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Demo: toetsenbordval en dialogen</h1>
+  <p><a href="#a">Eerste link op de pagina</a></p>
+
+  <section id="a">
+    <h2>A. Teksteditor die Tab inslikt (2.1.2)</h2>
+    <p id="a-kop">Opmerking</p>
+    <div class="veld" id="val" contenteditable="true" role="textbox" aria-multiline="true" aria-labelledby="a-kop"></div>
+    <p><button type="button">Knop na de editor</button></p>
+    <p>Tab en Shift+Tab voegen een tab in. Er is geen uitweg: dit is een val.</p>
+  </section>
+
+  <section id="b">
+    <h2>B. Dezelfde editor met uitweg</h2>
+    <p id="b-kop">Opmerking</p>
+    <p id="b-hulp">Tab springt in. Druk op Esc en daarna op Tab om verder te gaan.</p>
+    <div class="veld" id="uitweg" contenteditable="true" role="textbox" aria-multiline="true"
+         aria-labelledby="b-kop" aria-describedby="b-hulp"></div>
+    <p><button type="button">Knop na de editor</button></p>
+  </section>
+
+  <section id="c">
+    <h2>C. Eigen dialoog zonder focusbeheer</h2>
+    <p><button type="button" id="open-eigen">Open eigen dialoog</button></p>
+    <p>Focus blijft achter op de pagina. Met Tab loop je achter de overlay door.</p>
+  </section>
+
+  <section id="d">
+    <h2>D. Native dialog met showModal()</h2>
+    <p><button type="button" id="open-native">Open native dialoog</button></p>
+    <p>Focus gaat erin, de rest is inert, Esc sluit en de focus gaat terug naar de knop.
+       Tab kan wel naar de adresbalk en weer terug: dat is gedrag volgens de specificatie.</p>
+  </section>
+
+  <p><a href="#a">Laatste link op de pagina</a></p>
+</main>
+
+<div class="overlay" id="eigen">
+  <div class="doos">
+    <h2>Eigen dialoog</h2>
+    <label>Naam <input></label>
+    <button type="button" id="sluit-eigen">Sluiten</button>
+  </div>
+</div>
+
+<dialog id="native" aria-labelledby="native-kop">
+  <h2 id="native-kop">Native dialoog</h2>
+  <label>Naam <input></label>
+  <button type="button" id="sluit-native">Sluiten</button>
+</dialog>
+
+<script>
+  function tab(e) { e.preventDefault(); document.execCommand('insertText', false, '\t'); }
+  document.getElementById('val').addEventListener('keydown', function (e) {
+    if (e.key === 'Tab') { tab(e); }
+  });
+  var los = false, u = document.getElementById('uitweg');
+  u.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { los = true; return; }
+    if (e.key === 'Tab' && !los && !e.shiftKey) { tab(e); return; }
+    los = false;
+  });
+  u.addEventListener('blur', function () { los = false; });
+
+  var eigen = document.getElementById('eigen');
+  document.getElementById('open-eigen').onclick = function () { eigen.classList.add('open'); };
+  document.getElementById('sluit-eigen').onclick = function () { eigen.classList.remove('open'); };
+
+  var nat = document.getElementById('native');
+  document.getElementById('open-native').onclick = function () { nat.showModal(); };
+  document.getElementById('sluit-native').onclick = function () { nat.close(); };
+</script>
+</body>
+</html>

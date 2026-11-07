@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demo: focus niet bedekt</title>
+<style>
+  body { margin: 0; font: 20px/1.5 system-ui, sans-serif; color: #1c2b33; }
+  header { position: sticky; top: 0; height: 120px; background: #123a4f; color: #fff;
+           display: flex; align-items: center; justify-content: space-between; padding: 0 24px; }
+  header label { font-size: 16px; }
+  main { max-width: 860px; margin: 0 auto; padding: 24px; }
+  :focus-visible { outline: 3px solid #f4b400; outline-offset: 2px; }
+  .koekje { position: fixed; bottom: 0; left: 0; right: 0; background: #2e2e2e; color: #fff; padding: 20px 24px; }
+  .rij { display: flex; flex-wrap: wrap; gap: 12px; margin: 12px 0 40px; }
+  .rij a { display: inline-block; padding: 10px 16px; border: 1px solid #123a4f; color: #123a4f; }
+  html.opgelost { scroll-padding-top: 136px; scroll-padding-bottom: 96px; }
+</style>
+</head>
+<body>
+<header>
+  <strong>Sticky header van 120 pixels</strong>
+  <label><input type="checkbox" id="fix"> scroll-padding aan</label>
+</header>
+<main>
+  <h1>Focus niet bedekt (2.4.11)</h1>
+  <p>Tab door de links. Druk daarna op Shift+Tab. Let op de links onder de header en achter de balk onderaan.</p>
+  <script>
+    for (var i = 1; i <= 12; i++) {
+      document.write('<h2>Blok ' + i + '</h2><div class="rij">' +
+        ['Eerste', 'Tweede', 'Derde', 'Vierde'].map(function (w) { return '<a href="#">' + w + ' link in blok ' + i + '</a>'; }).join('') +
+        '</div>');
+    }
+  </script>
+</main>
+<div class="koekje">Vaste balk onderaan van 64 pixels, bijvoorbeeld een cookiemelding.</div>
+<script>
+  document.getElementById('fix').addEventListener('change', function (e) {
+    document.documentElement.classList.toggle('opgelost', e.target.checked);
+  });
+</script>
+</body>
+</html>

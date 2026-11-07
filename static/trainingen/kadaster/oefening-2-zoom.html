@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oefening 2: de pagina op 400%</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 16px/1.5 system-ui, sans-serif; color: #1c2b33; background: #fff; }
+  header { position: sticky; top: 0; height: 170px; background: #123a4f; color: #fff; padding: 16px 24px; z-index: 5; }
+  header h1 { margin: 0 0 8px; font-size: 28px; }
+  header a { color: #fff; margin-right: 18px; }
+  .hamburger { display: none; cursor: pointer; font-size: 24px; }
+  .inhoud { width: 1100px; margin: 0 auto; padding: 24px; display: flex; gap: 24px; }
+  .blok { flex: 0 0 340px; height: 210px; overflow: hidden; border: 1px solid #5a8f75; padding: 12px; }
+  .blok h2 { font-size: 18px; margin: 0 0 4px; line-height: 22px; height: 22px; overflow: hidden; }
+  .blok p { margin: 0; line-height: 20px; }
+  .tip { position: relative; border-bottom: 1px dashed #333; cursor: help; }
+  .tip .bubbel { display: none; position: absolute; left: 0; top: 100%; width: 260px; background: #222; color: #fff; padding: 8px; z-index: 3; }
+  .tip:hover .bubbel { display: block; }
+  table { border-collapse: collapse; width: 1000px; margin: 0 24px; }
+  th, td { border: 1px solid #888; padding: 6px 10px; text-align: left; }
+  .kaart { width: 1000px; height: 300px; margin: 24px; background: #dfeee6; border: 1px solid #5a8f75; padding: 12px; }
+  .knop { display: inline-block; width: 220px; height: 36px; line-height: 36px; overflow: hidden; white-space: nowrap;
+          text-align: center; background: #0b6e4f; color: #fff; border: 0; font: inherit; }
+  .draai { display: none; }
+  @media (max-width: 900px) {
+    nav { display: none; }
+    .hamburger { display: inline; }
+  }
+  @media (orientation: landscape) and (max-height: 500px) and (hover: none) {
+    .inhoud, table, .kaart { display: none; }
+    .draai { display: block; padding: 24px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Grondgebruik in beeld</h1>
+  <span class="hamburger" onclick="document.querySelector('nav').style.display='block'">☰</span>
+  <nav>
+    <a href="#cijfers">Cijfers</a>
+    <a href="#kaart">Kaart</a>
+    <a href="#download">Downloads</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+<p class="draai">Draai je scherm om deze pagina te bekijken.</p>
+<main>
+  <div class="inhoud">
+    <div class="blok">
+      <h2>Wat laat deze pagina zien?</h2>
+      <p>Fictieve oefenpagina. Je ziet hoeveel grond per regio wordt gebruikt voor wonen, natuur en landbouw.
+         De <span class="tip" tabindex="0">bron<span class="bubbel">Deze cijfers zijn verzonnen voor deze oefening en zeggen niets over een echte regio.</span></span>
+         staat erbij. Lees verder bij de tabel om de cijfers te vergelijken en de verschillen te begrijpen.</p>
+    </div>
+    <div class="blok">
+      <h2>Hoe download je de gegevens?</h2>
+      <p>Kies een formaat en klik op de knop. Het bestand wordt meteen opgeslagen op je eigen computer.</p>
+      <button class="knop" type="button">Download als CSV-bestand</button>
+    </div>
+    <div class="blok">
+      <h2>Vragen?</h2>
+      <p>Neem contact op met het voorbeeldteam. We reageren meestal binnen twee werkdagen op je bericht.</p>
+    </div>
+  </div>
+  <table id="cijfers">
+    <caption>Grondgebruik per regio in procent (verzonnen)</caption>
+    <tr><th scope="col">Regio</th><th scope="col">Wonen</th><th scope="col">Natuur</th><th scope="col">Landbouw</th><th scope="col">Water</th><th scope="col">Overig</th></tr>
+    <tr><th scope="row">Noord</th><td>11</td><td>24</td><td>52</td><td>9</td><td>4</td></tr>
+    <tr><th scope="row">Midden</th><td>23</td><td>31</td><td>35</td><td>6</td><td>5</td></tr>
+    <tr><th scope="row">Zuid</th><td>18</td><td>20</td><td>49</td><td>8</td><td>5</td></tr>
+  </table>
+  <div class="kaart" id="kaart" role="img" aria-label="Kaartvlak: voorbeeld van een kaart met regio's">Kaart met regio's</div>
+</main>
+</body>
+</html>
