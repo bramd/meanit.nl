@@ -11,6 +11,8 @@
   h2 { font-size: 1.2rem; margin: 1.75rem 0 0.5rem; }
   ol { padding-left: 1.75rem; }
   li { margin: 0.45rem 0; }
+  .hoe { margin: 0.25rem 0 0; padding-left: 1.25rem; color: #3d5260; font-size: 0.95em; }
+  .hoe li { margin: 0.15rem 0; }
   .sc { white-space: nowrap; color: #3d5260; }
   .klein { color: #4a5b65; }
   a { color: #0b4f8a; }
@@ -18,7 +20,7 @@
   .terug-balk { margin: 0; padding: 8px 16px; background: #eef2f4; font: 16px/1.5 system-ui, sans-serif; }
   @media (prefers-color-scheme: dark) {
     body { color: #eef2f4; background: #1c2125; }
-    .sc, .klein { color: #b8c4ca; }
+    .sc, .klein, .hoe { color: #b8c4ca; }
     a { color: #8ab4f8; }
     .terug-balk { background: #2a3238; }
   }
@@ -51,7 +53,12 @@
 
   <h2>Responsive en zoomen</h2>
   <ol start="9">
-    <li>Zet het venster op 1280 pixels breed en zoom in stappen naar 400%. <span class="sc">(1.4.10)</span></li>
+    <li>Zet het venster op 1280 pixels breed en zoom in stappen naar 400%. <span class="sc">(1.4.10)</span>
+      <ul class="hoe">
+        <li>Browserzoom: maak het venster 1280 pixels breed en zoom met Ctrl en + (Mac: Cmd en +) tot 400%. Chrome en Edge tonen de breedte rechtsboven terwijl je het venster versleept met DevTools open.</li>
+        <li>Sneller: de responsive weergave. Firefox: Ctrl+Shift+M. Chrome en Edge: F12, dan Ctrl+Shift+M. Stel 320 × 256 in; dat is 1280 × 1024 op 400%.</li>
+      </ul>
+    </li>
     <li>Moet je horizontaal scrollen? Alleen tabellen, kaarten en schema’s mogen dat. <span class="sc">(1.4.10)</span></li>
     <li>Is alle inhoud en functionaliteit er nog, ook het menu? Test ook dialogen, accordeons en tooltips. <span class="sc">(1.4.10)</span></li>
     <li>Herhaal op 400% de stappen 1 tot en met 7 met Tab.</li>
