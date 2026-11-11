@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Toetsenbordbediening en focus: de slides als tekst</title>
+<style>
+  body { margin: 0; font: 1.125rem/1.6 system-ui, sans-serif; color: #1c2b33; background: #fff; }
+  main { max-width: 46rem; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+  h1 { font-size: 1.75rem; line-height: 1.25; }
+  h2 { font-size: 1.35rem; margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid #c8d2d8; }
+  h3 { font-size: 1.1rem; margin-bottom: 0.25rem; }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { border: 1px solid #8a9aa3; padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }
+  th { background: #eef2f4; }
+  pre { background: #f4f6f7; border: 1px solid #c8d2d8; padding: 0.75rem; overflow-x: auto; }
+  code { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: 0.95em; }
+  a { color: #0b57d0; }
+  :focus-visible { outline: 3px solid #0b57d0; outline-offset: 2px; }
+  .klein { color: #4a5b65; }
+  @media (prefers-color-scheme: dark) {
+    body { color: #eef2f4; background: #1c2125; }
+    th { background: #2a3238; }
+    pre { background: #242b30; border-color: #4a5b65; }
+    a { color: #8ab4f8; }
+    :focus-visible { outline-color: #8ab4f8; }
+    .klein { color: #b8c4ca; }
+  }
+</style>
+</head>
+<body>
+<main>
+<h1>Toetsenbordbediening en focus: de slides als tekst</h1>
+<p>Opleiding WCAG-specialist · Dagdeel 4</p>
+
+<p>Online via Zoom · 12 november 2026 · 9.30 tot 12.00</p>
+<p>Bram Duvigneau</p>
+<p class="klein">Dit is de tekst van alle slides onder elkaar, om mee te lezen tijdens de sessie. Elke slide is een kop van niveau 2 met hetzelfde nummer als in de presentatie. Links openen in dit document in hetzelfde tabblad. De slide met de antwoorden van oefening 1 staat er pas na de sessie in.</p>
+<nav aria-labelledby="inhoud">
+<h2 id="inhoud">Inhoud</h2>
+<ol>
+<li><a href="#s-programma">Slide 2: Het programma van vandaag</a></li>
+<li><a href="#s-voor-wie">Slide 3: Wie werkt met het toetsenbord?</a></li>
+<li><a href="#s-muis-weg">Slide 4: Probeer het zelf</a></li>
+<li><a href="#s-huiswerk">Slide 5: Wat vonden jullie op Twente Milieu?</a></li>
+<li><a href="#s-gemeenten">Slide 6: Menu: openen moet ook zonder hover</a></li>
+<li><a href="#s-bijsturen">Slide 7: Fout of advies?</a></li>
+<li><a href="#s-criteria-ochtend">Slide 8: Zes criteria voor toetsenbord en focus</a></li>
+<li><a href="#s-native">Slide 9: 2.1.1: begin met het echte element</a></li>
+<li><a href="#s-geen-val">Slide 10: 2.1.2: je moet er ook weer uit kunnen</a></li>
+<li><a href="#s-pauze-1">Slide 11: Pauze</a></li>
+<li><a href="#s-wat-is-focus">Slide 12: Wat is focus?</a></li>
+<li><a href="#s-zichtbaar">Slide 13: 2.4.7: maak de focus beter, haal hem nooit weg</a></li>
+<li><a href="#s-niet-bedekt">Slide 14: 2.4.11: niet onder de sticky header</a></li>
+<li><a href="#s-volgorde">Slide 15: 2.4.3: de volgorde moet logisch zijn</a></li>
+<li><a href="#s-sneltoetsen">Slide 16: 2.1.4: een enkel teken als sneltoets</a></li>
+<li><a href="#s-oefening-1">Slide 17: Oefening 1: zoek de toetsenbordproblemen</a></li>
+<li><a href="#s-samenvatting">Slide 19: Wat neem je mee uit deze sessie?</a></li>
+<li><a href="#s-vervolg">Slide 20: Hierna</a></li>
+</ol>
+</nav>
+<section aria-labelledby="s-programma">
+<h2 id="s-programma">Slide 2: Het programma van vandaag</h2>
+<table>
+<tr><th scope="col">Tijd</th><th scope="col">Onderdeel</th></tr>
+<tr><td>9.30</td><td>Introductie: wie werkt met het toetsenbord?</td></tr>
+<tr><td>9.45</td><td>Twente Milieu: zelf proberen, dan samen bespreken</td></tr>
+<tr><td>10.15</td><td>Toetsenbord: native elementen en geen val</td></tr>
+<tr><td>10.35</td><td>Pauze</td></tr>
+<tr><td>10.45</td><td>Focus: zichtbaar, niet bedekt, volgorde, sneltoetsen</td></tr>
+<tr><td>11.15</td><td>Oefening: problemen zoeken</td></tr>
+<tr><td>11.40</td><td>Oefening bespreken</td></tr>
+<tr><td>11.50</td><td>Afsluiten</td></tr>
+</table>
+<p>Links naar oefeningen en demo’s openen in een nieuw tabblad.</p>
+</section>
+<section aria-labelledby="s-voor-wie">
+<h2 id="s-voor-wie">Slide 3: Wie werkt met het toetsenbord?</h2>
+<ul>
+<li>Mensen met een motorische beperking, trillende handen of RSI</li>
+<li>Schakelaars en spraakbediening: oudere software bootst toetsen na, moderne schakelbediening gaat via de toegankelijkheid van het besturingssysteem</li>
+<li>Schermlezergebruikers: zij hebben veel meer dan Tab en Enter, maar ook dat werkt alleen met echte, bedienbare elementen</li>
+<li>Slechtziende gebruikers: vaak nog met de muis, maar wie het toetsenbord gebruikt, moet de focus kunnen zien</li>
+</ul>
+<p>Video: schakelbediening op iOS, 1,5 minuut. <a href="https://developer.apple.com/videos/play/wwdc2020/10019/?time=103">Apple: App accessibility for Switch Control</a></p>
+</section>
+<section aria-labelledby="s-muis-weg">
+<h2 id="s-muis-weg">Slide 4: Probeer het zelf</h2>
+<p>Vijf minuten, alleen het toetsenbord. Ga naar <a href="https://www.twentemilieu.nl/voorkomratten">twentemilieu.nl/voorkomratten</a>, de pagina van het huiswerk.</p>
+<p>Open het menu Gemeenten, open een video of popup en sluit die weer.</p>
+<p>Gebruik Tab en Shift+Tab, Enter, spatie, de pijltjes en Esc. Noteer waar je twijfelt of vastloopt.</p>
+</section>
+<section aria-labelledby="s-huiswerk">
+<h2 id="s-huiswerk">Slide 5: Wat vonden jullie op Twente Milieu?</h2>
+<table>
+<tr><th scope="col">Probleem</th><th scope="col">Criterium</th></tr>
+<tr><td>Gemeenten opent niet met Enter of spatie</td><td>2.1.1</td></tr>
+<tr><td>Popup krijgt geen focus; je tabt erachter</td><td>2.4.3</td></tr>
+<tr><td>Popup sluit niet met Esc</td><td>Verwachting, geen eis op zich</td></tr>
+<tr><td>Geen focus op invoervelden: outline none</td><td>2.4.7</td></tr>
+<tr><td>Focus op Versturen valt weg tegen de knop</td><td>1.4.11, komt op dagdeel 5</td></tr>
+<tr><td>Na een ankerlink blijft de focus achter</td><td>2.4.3</td></tr>
+<tr><td>Geen skiplink, kopniveaus overgeslagen</td><td>2.4.1 en 1.3.1, komt op dagdeel 7</td></tr>
+</table>
+<p>Wat vond je nog meer, en hoe heb je het getest?</p>
+</section>
+<section aria-labelledby="s-gemeenten">
+<h2 id="s-gemeenten">Slide 6: Menu: openen moet ook zonder hover</h2>
+<pre><code>&lt;div class="relative group"&gt;
+  &lt;button type="button"&gt;Gemeenten&lt;/button&gt;
+  &lt;div class="invisible group-hover:visible"&gt;
+    &lt;a href="/almelo"&gt;Almelo&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<p>De knop doet niets: het menu opent alleen met hover via CSS.</p>
+<p>Advies: laat de knop de lijst tonen en verbergen, met <b>aria-expanded</b>, en laat Esc het menu sluiten.</p>
+</section>
+<section aria-labelledby="s-bijsturen">
+<h2 id="s-bijsturen">Slide 7: Fout of advies?</h2>
+<table>
+<tr><th scope="col">Bevinding</th><th scope="col">Oordeel</th></tr>
+<tr><td>Menu moet met pijltjes werken</td><td>Advies. Voor navigatie volstaan Tab en Enter; pijltjes horen bij een applicatiemenu</td></tr>
+<tr><td>Focus mag niet naar de adresbalk</td><td>Geen fout: bij een modale dialog mag dat, zolang je terug kunt</td></tr>
+<tr><td>Knop Opslaan is disabled</td><td>Geen 2.1.1-fout: een uitgeschakelde knop hoeft geen focus. Wel een advies</td></tr>
+<tr><td>Logo heeft geen link</td><td>Eerst controleren: het logo is een link naar de homepage</td></tr>
+<tr><td>Installeer een ARIA-pakket</td><td>ARIA is geen pakket. Begin met button en dialog</td></tr>
+</table>
+</section>
+<section aria-labelledby="s-criteria-ochtend">
+<h2 id="s-criteria-ochtend">Slide 8: Zes criteria voor toetsenbord en focus</h2>
+<table>
+<tr><th scope="col">Nr</th><th scope="col">Naam</th><th scope="col">Niveau</th><th scope="col">In het kort</th></tr>
+<tr><td>2.1.1</td><td>Toetsenbord</td><td>A</td><td>Alles werkt zonder muis</td></tr>
+<tr><td>2.1.2</td><td>Geen toetsenbordval</td><td>A</td><td>Je komt er weer uit</td></tr>
+<tr><td>2.1.4</td><td>Enkel teken sneltoetsen</td><td>A</td><td>Geen onverwacht gedrag bij indrukken losse toetsen</td></tr>
+<tr><td>2.4.3</td><td>Focus volgorde</td><td>A</td><td>Logisch en bruikbaar</td></tr>
+<tr><td>2.4.7</td><td>Focus zichtbaar</td><td>AA</td><td>Je ziet waar je bent</td></tr>
+<tr><td>2.4.11</td><td>Focus niet bedekt (minimum)</td><td>AA</td><td>Altijd kunnen zien waar je bent</td></tr>
+</table>
+</section>
+<section aria-labelledby="s-native">
+<h2 id="s-native">Slide 9: 2.1.1: begin met het echte element</h2>
+<h3>Zelf nabouwen</h3>
+
+<pre><code>&lt;div onclick="bewaar()"&gt;
+  Bewaren
+&lt;/div&gt;</code></pre>
+
+<p>Geen focus, geen toetsenbordondersteuning, geen rol. Dat bouw je allemaal zelf.</p>
+
+
+<h3>Native gebruiken</h3>
+
+<pre><code>&lt;button type="button"
+  onclick="bewaar()"&gt;
+  Bewaren&lt;/button&gt;</code></pre>
+
+<p>Focus, Enter, spatie en rol krijg je gratis.</p>
+
+
+<p>Links: Enter. Knoppen: Enter en spatie. Groepen: pijltjes. Dialoog: Esc.</p>
+<p>Let op: een &lt;a&gt; zonder href is geen link en krijgt geen focus.</p>
+</section>
+<section aria-labelledby="s-geen-val">
+<h2 id="s-geen-val">Slide 10: 2.1.2: je moet er ook weer uit kunnen</h2>
+<pre><code>editor.addEventListener('keydown', e =&gt; {
+  if (e.key === 'Tab') {
+    e.preventDefault();  // inspringen
+    voegTabIn();
+  }
+});</code></pre>
+<h3>Wel een val</h3><p>Tab en Shift+Tab springen in, en nergens staat hoe je eruit komt.</p><h3>Geen val</h3><p>Tab springt in, Esc en dan Tab gaat verder, en dat staat bij het veld.</p>
+<p>Demo: <a href="https://meanit.nl/trainingen/wcag-specialist/dag4/demo-val.html">meanit.nl/trainingen/wcag-specialist/dag4/demo-val.html</a></p>
+</section>
+<section aria-labelledby="s-pauze-1">
+<h2 id="s-pauze-1">Slide 11: Pauze</h2>
+<p>Om 10.45 gaan we verder met de focus.</p>
+</section>
+<section aria-labelledby="s-wat-is-focus">
+<h2 id="s-wat-is-focus">Slide 12: Wat is focus?</h2>
+<p>Het element dat nu toetsen ontvangt. Enter, spatie en typen gaan daarheen.</p>
+<ul>
+<li>Vanzelf focusbaar: links met href, knoppen, formuliervelden</li>
+<li>tabindex="0": in de tabvolgorde, voor eigen componenten</li>
+<li>tabindex="-1": alleen met script te focussen, bijvoorbeeld een kop na een ankerlink</li>
+<li>tabindex hoger dan 0: niet doen</li>
+</ul>
+</section>
+<section aria-labelledby="s-zichtbaar">
+<h2 id="s-zichtbaar">Slide 13: 2.4.7: maak de focus beter, haal hem nooit weg</h2>
+<pre><code>:focus-visible {
+  outline: 3px solid #b3005e;
+  outline-offset: 2px;
+}</code></pre>
+
+<table>
+<tr><th scope="col">Criterium</th><th scope="col">Niveau</th><th scope="col">Eis</th></tr>
+<tr><td>2.4.7</td><td>AA</td><td>De focus is zichtbaar</td></tr>
+<tr><td>1.4.11</td><td>AA</td><td>Contrast 3:1 met aangrenzende kleuren</td></tr>
+<tr><td>2.4.13</td><td>AAA</td><td>2 pixels dik, 3:1 tussen wel en geen focus. Geen eis, wel een keuze voor je organisatie</td></tr>
+</table>
+</section>
+<section aria-labelledby="s-niet-bedekt">
+<h2 id="s-niet-bedekt">Slide 14: 2.4.11: niet onder de sticky header</h2>
+<pre><code>html {
+  scroll-padding-top: 106px;
+  scroll-padding-bottom: 16px;
+}</code></pre>
+
+<ul>
+<li>AA: het element mag niet volledig bedekt zijn; gedeeltelijk mag nog</li>
+<li>Risico’s: sticky header of footer, cookiebalk, chatvenster</li>
+<li>Test met Shift+Tab: dan schuift de pagina omhoog onder de header</li>
+<li>Ingezoomd is er minder hoogte over: dat komt terug op dagdeel 9</li>
+</ul>
+<p>Demo: <a href="https://meanit.nl/trainingen/wcag-specialist/dag4/demo-niet-bedekt.html">meanit.nl/trainingen/wcag-specialist/dag4/demo-niet-bedekt.html</a></p>
+</section>
+<section aria-labelledby="s-volgorde">
+<h2 id="s-volgorde">Slide 15: 2.4.3: de volgorde moet logisch zijn</h2>
+<pre><code>&lt;dialog id="d" aria-labelledby="kop"&gt;...&lt;/dialog&gt;
+
+knop.addEventListener('click', () =&gt; d.showModal());</code></pre>
+
+<ul>
+<li>Openen: de focus gaat het dialoog in</li>
+<li>De pagina erachter is niet meer bereikbaar</li>
+<li>Esc sluit, en de focus keert terug naar de knop</li>
+<li>Geen positieve tabindex: de bronvolgorde bepaalt</li>
+</ul>
+</section>
+<section aria-labelledby="s-sneltoetsen">
+<h2 id="s-sneltoetsen">Slide 16: 2.1.4: een enkel teken als sneltoets</h2>
+<p>Wie “zoek” dicteert, kan zo meerdere acties tegelijk starten. Een sneltoets van één teken mag alleen als:</p>
+
+<h3>Uitzetten</h3><p>Je kunt hem uitschakelen</p>
+<h3>Wijzigen</h3><p>Je kunt er Ctrl of Alt bij zetten</p>
+<h3>Alleen bij focus</h3><p>Hij werkt alleen op dat onderdeel</p>
+
+<p>Voorbeeld: YouTube. k, m, f en cijfers werken zodra de speler focus heeft. In een embed zet <code>?disablekb=1</code> ze uit.</p>
+<p>Demo: <a href="https://meanit.nl/trainingen/wcag-specialist/dag4/demo-sneltoetsen.html">meanit.nl/trainingen/wcag-specialist/dag4/demo-sneltoetsen.html</a></p>
+</section>
+<section aria-labelledby="s-oefening-1">
+<h2 id="s-oefening-1">Slide 17: Oefening 1: zoek de toetsenbordproblemen</h2>
+<p>Alleen, 25 minuten. Bestand: <a href="https://meanit.nl/trainingen/wcag-specialist/dag4/oefening-1-toetsenbord.html">meanit.nl/trainingen/wcag-specialist/dag4/oefening-1-toetsenbord.html</a></p>
+<ol>
+<li>Tab door de pagina zonder muis</li>
+<li>Noteer per probleem: wat gaat mis, welk criterium, afkeuring of advies</li>
+<li>Wijs in de Inspector de code aan die het veroorzaakt</li>
+</ol>
+
+<h3>Tijd over</h3>
+<p>Schrijf bij twee bevindingen een kort advies, zoals in een rapport.</p>
+
+<p>Gebruik de <a href="https://meanit.nl/trainingen/wcag-specialist/dag4/checklist.html">checklist</a>. Om 11.40 bespreken we het samen.</p>
+</section>
+<section aria-labelledby="s-samenvatting">
+<h2 id="s-samenvatting">Slide 19: Wat neem je mee uit deze sessie?</h2>
+<p>Een rondje: één ding dat je bij je volgende test anders doet.</p>
+</section>
+<section aria-labelledby="s-vervolg">
+<h2 id="s-vervolg">Slide 20: Hierna</h2>
+<table>
+<tr><th scope="col">Datum</th><th scope="col">Onderwerp</th><th scope="col">Trainer</th></tr>
+<tr><td>26 november</td><td>Kleur en contrast</td><td>Jaap</td></tr>
+<tr><td>10 december</td><td>Op locatie: aanwijzer en touch, video en audio</td><td>Renate, Michiel en Jaap</td></tr>
+<tr><td>4 februari</td><td>ARIA, statusberichten en dynamisch gedrag</td><td>Bram</td></tr>
+</table>
+<p>Alles per dagdeel: <a href="https://ia2.nl/wcag">ia2.nl/wcag</a></p>
+<p>Vragen? bram@meanit.nl</p>
+</section>
+</main>
+</body>
+</html>
