@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Checklist toetsenbord en focus</title>
+<style>
+  body { margin: 0; font: 1.0625rem/1.55 system-ui, sans-serif; color: #1c2b33; background: #fff; }
+  main { max-width: 46rem; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+  h1 { font-size: 1.6rem; line-height: 1.25; margin: 0 0 0.25rem; }
+  h2 { font-size: 1.2rem; margin: 1.75rem 0 0.5rem; }
+  ol { padding-left: 1.75rem; }
+  li { margin: 0.45rem 0; }
+  .hoe { margin: 0.25rem 0 0; padding-left: 1.25rem; color: #3d5260; font-size: 0.95em; }
+  .hoe li { margin: 0.15rem 0; }
+  .sc { white-space: nowrap; color: #3d5260; }
+  .klein { color: #4a5b65; }
+  a { color: #0b4f8a; }
+  a:focus-visible { outline: 3px solid #0b57d0; outline-offset: 2px; }
+  .terug-balk { margin: 0; padding: 8px 16px; background: #eef2f4; font: 16px/1.5 system-ui, sans-serif; }
+  @media (prefers-color-scheme: dark) {
+    body { color: #eef2f4; background: #1c2125; }
+    .sc, .klein, .hoe { color: #b8c4ca; }
+    a { color: #8ab4f8; }
+    .terug-balk { background: #2a3238; }
+  }
+  @media print {
+    .terug-balk { display: none; }
+    body { font-size: 11pt; color: #000; background: #fff; }
+    main { padding: 0; max-width: none; }
+    h2 { margin-top: 1rem; }
+    li { margin: 0.2rem 0; }
+  }
+</style>
+</head>
+<body>
+<p class="terug-balk"><a href="https://meanit.nl/trainingen/wcag-specialist/dag4/">Terug naar het overzicht</a></p>
+<main>
+  <h1>Checklist toetsenbord en focus</h1>
+  <p class="klein">Opleiding WCAG-specialist, dagdeel 4. Een tool vindt hier weinig van: dit is handwerk.</p>
+
+  <h2>Toetsenbord en focus</h2>
+  <ol>
+    <li>Leg de muis weg en begin bovenaan met Tab; ga terug met Shift+Tab.</li>
+    <li>Bereik je alles wat je met de muis kunt, ook menu’s, video en kaart? <span class="sc">(2.1.1)</span></li>
+    <li>Werkt alles met de verwachte toetsen: Enter voor links, Enter en spatie voor knoppen, pijltjes binnen groepen, Esc voor dialogen? <span class="sc">(2.1.1)</span></li>
+    <li>Kom je overal weer weg? <span class="sc">(2.1.2)</span></li>
+    <li>Volgt de focus een logische volgorde, ook na het openen en sluiten van een dialoog? <span class="sc">(2.4.3)</span></li>
+    <li>Zie je altijd waar de focus staat? Test in Firefox, omdat Chrome soms zelf een rand toevoegt. <span class="sc">(2.4.7)</span></li>
+    <li>Blijft het element met focus zichtbaar, ook onder een sticky header of cookiebalk? Test ook Shift+Tab. <span class="sc">(2.4.11)</span></li>
+    <li>Zijn er sneltoetsen met één teken? Kun je die uitzetten of wijzigen, of werken ze alleen bij focus? <span class="sc">(2.1.4)</span></li>
+  </ol>
+
+</main>
+</body>
+</html>

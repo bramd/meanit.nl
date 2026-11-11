@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oefening 1: antwoordversie</title>
+<style>
+  * { box-sizing: border-box; }
+  /* FIX 2.4.11: anker- en focusdoelen blijven onder de sticky header zichtbaar */
+  html { scroll-behavior: smooth; scroll-padding-top: 106px; scroll-padding-bottom: 16px; }
+  body { margin: 0; font: 16px/1.5 system-ui, sans-serif; color: #1c2b33; background: #fff; }
+  /* FIX 2.4.7: outline:none is weg; zichtbare focus op donker en licht */
+  :focus-visible { outline: 3px solid #b3005e; outline-offset: 2px; }
+  header :focus-visible { outline-color: #ffd34d; }
+  header { position: sticky; top: 0; z-index: 10; height: 90px; background: #123a4f; color: #fff;
+           display: flex; align-items: center; gap: 24px; padding: 0 24px; }
+  header a, header button { color: #fff; background: none; border: 0; font: inherit; cursor: pointer; }
+  .logo { font-weight: 700; text-decoration: none; }
+  .menu { position: relative; }
+  .menu-list { position: absolute; top: 100%; left: 0; margin: 0; padding: 8px 0;
+               list-style: none; background: #fff; box-shadow: 0 4px 12px #0004; min-width: 200px; }
+  .menu-list[hidden] { display: none; }
+  .menu-list a { display: block; padding: 6px 16px; color: #123a4f; }
+  .menu-list :focus-visible { outline-color: #b3005e; }
+  main { max-width: 900px; margin: 0 auto; padding: 24px; }
+  section { margin-bottom: 48px; }
+  .knop { display: inline-block; background: #0b6e4f; color: #fff; padding: 8px 16px; border: 0;
+          border-radius: 4px; cursor: pointer; font: inherit; }
+  .kaart { height: 220px; background: #dfeee6; border: 1px solid #5a8f75; padding: 12px; }
+  .perceel { display: inline-block; margin: 6px; padding: 8px 12px; background: #fff; border: 1px solid #5a8f75;
+             color: inherit; font: inherit; cursor: pointer; }
+  dialog { padding: 24px; width: min(420px, 90vw); border: 0; border-radius: 6px; }
+  dialog::backdrop { background: #0009; }
+  dialog label { display: block; margin: 12px 0; }
+  dialog input { display: block; width: 100%; padding: 6px; }
+  .opvulling { height: 900px; }
+  .notitie { min-height: 120px; border: 1px solid #5a8f75; padding: 8px; white-space: pre-wrap; tab-size: 4; }
+</style>
+<style>
+  .terug-balk { margin: 0; padding: 8px 16px; background: #eef2f4; font: 16px/1.5 system-ui, sans-serif; }
+  .terug-balk a { color: #0b4f8a; }
+  .terug-balk a:focus-visible { outline: 3px solid #0b57d0 !important; outline-offset: 2px; }
+</style>
+</head>
+<body>
+<p class="terug-balk"><a href="https://meanit.nl/trainingen/wcag-specialist/dag4/">Terug naar het overzicht</a></p>
+<header>
+  <a class="logo" href="#top" id="top">Perceelverkenner</a>
+  <nav aria-label="Hoofdmenu" style="display:flex;gap:24px">
+    <div class="menu" id="menu">
+      <!-- FIX 2.1.1: disclosure-knop met aria-expanded, geen hover-only -->
+      <button type="button" id="menuknop" aria-expanded="false" aria-controls="menulijst">Provincies</button>
+      <ul class="menu-list" id="menulijst" hidden>
+        <li><a href="#gelderland">Gelderland</a></li>
+        <li><a href="#utrecht">Utrecht</a></li>
+        <li><a href="#zeeland">Zeeland</a></li>
+      </ul>
+    </div>
+    <!-- FIX 2.4.3: positieve tabindex weg en de bronvolgorde gelijk aan de paginavolgorde -->
+    <a href="#uitleg">Uitleg</a>
+    <a href="#kaart">Kaart</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Perceel zoeken</h1>
+  <p>Fictieve oefenpagina. Zoek een perceel op de kaart, schrijf een notitie en bewaar het in je lijst.
+     Sneltoets: druk op <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd> om de zoekopdracht te wissen.</p>
+
+  <section id="uitleg">
+    <h2>Uitleg</h2>
+    <p>Kies een perceel op de kaart. Daarna kun je het bewaren.</p>
+    <!-- FIX 2.1.1: echte button; Enter en spatie werken vanzelf -->
+    <button type="button" class="knop" id="bewaar">Perceel bewaren</button>
+    <div class="opvulling"></div>
+  </section>
+
+  <section id="kaart">
+    <h2>Kaart</h2>
+    <p><label for="zoek">Zoekopdracht</label> <input id="zoek" value="Apeldoorn"></p>
+    <div class="kaart" id="kaartvlak" role="group" aria-label="Kaart met percelen">
+      <button type="button" class="perceel">Perceel A 1234</button>
+      <button type="button" class="perceel">Perceel B 5678</button>
+      <p id="keuze">Nog geen perceel gekozen.</p>
+    </div>
+    <h3 id="notitie-kop">Notitie bij je keuze</h3>
+    <!-- FIX 2.1.2: de uitweg staat erbij, zichtbaar en gekoppeld aan het veld -->
+    <p id="notitie-hulp">Tab springt in. Druk op Esc en daarna op Tab om verder te gaan.</p>
+    <div class="notitie" id="notitie" contenteditable="true" role="textbox" aria-multiline="true"
+         aria-labelledby="notitie-kop" aria-describedby="notitie-hulp"></div>
+    <div class="opvulling"></div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p><a href="mailto:voorbeeld@example.org">Stuur een e-mail</a></p>
+  </section>
+</main>
+
+<!-- FIX 2.4.3/2.1.1: native dialog met showModal: focus erin, pagina inert, Esc sluit -->
+<dialog id="dialoog" aria-labelledby="dialoogkop">
+  <h2 id="dialoogkop">Perceel bewaren</h2>
+  <label>Naam voor deze bewaarde keuze <input id="naam"></label>
+  <button type="button" class="knop" data-sluit>Bewaren</button>
+  <button type="button" class="knop" data-sluit>Sluiten</button>
+</dialog>
+
+<script>
+  var knop = document.getElementById('menuknop');
+  var lijst = document.getElementById('menulijst');
+  function zetMenu(open) { knop.setAttribute('aria-expanded', String(open)); lijst.hidden = !open; }
+  knop.addEventListener('click', function () { zetMenu(lijst.hidden); });
+  document.getElementById('menu').addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !lijst.hidden) { zetMenu(false); knop.focus(); }
+  });
+  document.getElementById('menu').addEventListener('focusout', function (e) {
+    if (!e.relatedTarget || !e.currentTarget.contains(e.relatedTarget)) { zetMenu(false); }
+  });
+
+  document.querySelectorAll('.perceel').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.getElementById('keuze').textContent = b.textContent + ' gekozen.';
+    });
+  });
+
+  var dialoog = document.getElementById('dialoog');
+  // showModal bewaart de focus en zet hem bij sluiten terug op de opener.
+  document.getElementById('bewaar').addEventListener('click', function () { dialoog.showModal(); });
+  dialoog.querySelectorAll('[data-sluit]').forEach(function (b) {
+    b.addEventListener('click', function () { dialoog.close(); });
+  });
+
+  // FIX 2.1.2: Tab springt in, maar na Esc gaat Tab weer naar het volgende element.
+  // Nog eenvoudiger: Tab helemaal niet afvangen en inspringen via een knop.
+  var notitie = document.getElementById('notitie');
+  var losgelaten = false;
+  notitie.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { losgelaten = true; return; }
+    if (e.key === 'Tab' && !losgelaten && !e.shiftKey) {
+      e.preventDefault();
+      document.execCommand('insertText', false, '\t');
+      return;
+    }
+    losgelaten = false;
+  });
+  notitie.addEventListener('blur', function () { losgelaten = false; });
+
+  // FIX 2.1.4: de sneltoets gebruikt een niet-afdrukbare toets.
+  document.addEventListener('keydown', function (e) {
+    if (e.altKey && e.shiftKey && e.code === 'KeyZ') {
+      e.preventDefault();
+      document.getElementById('zoek').value = '';
+    }
+  });
+</script>
+</body>
+</html>

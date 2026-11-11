@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oefening 1: zoek de toetsenbordproblemen</title>
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font: 16px/1.5 system-ui, sans-serif; color: #1c2b33; background: #fff; }
+  a, button, [role="button"], input { outline: none; }
+  header { position: sticky; top: 0; z-index: 10; height: 90px; background: #123a4f; color: #fff;
+           display: flex; align-items: center; gap: 24px; padding: 0 24px; }
+  header a, header button { color: #fff; background: none; border: 0; font: inherit; cursor: pointer; }
+  .logo { font-weight: 700; text-decoration: none; }
+  .menu { position: relative; }
+  .menu-list { visibility: hidden; position: absolute; top: 100%; left: 0; margin: 0; padding: 8px 0;
+               list-style: none; background: #fff; box-shadow: 0 4px 12px #0004; min-width: 200px; }
+  .menu:hover .menu-list { visibility: visible; }
+  .menu-list a { display: block; padding: 6px 16px; color: #123a4f; }
+  main { max-width: 900px; margin: 0 auto; padding: 24px; }
+  section { margin-bottom: 48px; }
+  .knop { display: inline-block; background: #0b6e4f; color: #fff; padding: 8px 16px; border: 0;
+          border-radius: 4px; cursor: pointer; font: inherit; }
+  .kaart { height: 220px; background: #dfeee6; border: 1px solid #5a8f75; padding: 12px; }
+  .perceel { display: inline-block; margin: 6px; padding: 8px 12px; background: #fff; border: 1px solid #5a8f75; }
+  .overlay { display: none; position: fixed; inset: 0; background: #0009; z-index: 20; }
+  .overlay.open { display: flex; align-items: center; justify-content: center; }
+  .dialoog { background: #fff; padding: 24px; width: min(420px, 90vw); border-radius: 6px; }
+  .dialoog label { display: block; margin: 12px 0; }
+  .dialoog input { display: block; width: 100%; padding: 6px; }
+  .opvulling { height: 900px; }
+  .notitie { min-height: 120px; border: 1px solid #5a8f75; padding: 8px; white-space: pre-wrap; tab-size: 4; }
+</style>
+<style>
+  .terug-balk { margin: 0; padding: 8px 16px; background: #eef2f4; font: 16px/1.5 system-ui, sans-serif; }
+  .terug-balk a { color: #0b4f8a; }
+  .terug-balk a:focus-visible { outline: 3px solid #0b57d0 !important; outline-offset: 2px; }
+</style>
+</head>
+<body>
+<p class="terug-balk"><a href="https://meanit.nl/trainingen/wcag-specialist/dag4/">Terug naar het overzicht</a></p>
+<header>
+  <a class="logo" href="#top" id="top">Perceelverkenner</a>
+  <nav aria-label="Hoofdmenu" style="display:flex;gap:24px">
+    <div class="menu">
+      <button type="button">Provincies</button>
+      <ul class="menu-list">
+        <li><a href="#gelderland">Gelderland</a></li>
+        <li><a href="#utrecht">Utrecht</a></li>
+        <li><a href="#zeeland">Zeeland</a></li>
+      </ul>
+    </div>
+    <a href="#uitleg" tabindex="3">Uitleg</a>
+    <a href="#kaart" tabindex="2">Kaart</a>
+    <a href="#contact" tabindex="1">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Perceel zoeken</h1>
+  <p>Fictieve oefenpagina. Zoek een perceel op de kaart, schrijf een notitie en bewaar het in je lijst.
+     Sneltoets: druk op <kbd>z</kbd> om de zoekopdracht te wissen.</p>
+
+  <section id="uitleg">
+    <h2>Uitleg</h2>
+    <p>Kies een perceel op de kaart. Daarna kun je het bewaren.</p>
+    <div class="knop" onclick="openDialoog()">Perceel bewaren</div>
+    <div class="opvulling"></div>
+  </section>
+
+  <section id="kaart">
+    <h2>Kaart</h2>
+    <p><label for="zoek">Zoekopdracht</label> <input id="zoek" value="Apeldoorn"></p>
+    <div class="kaart" id="kaartvlak">
+      <span class="perceel" onclick="kies(this)">Perceel A 1234</span>
+      <span class="perceel" onclick="kies(this)">Perceel B 5678</span>
+      <p id="keuze">Nog geen perceel gekozen.</p>
+    </div>
+    <h3 id="notitie-kop">Notitie bij je keuze</h3>
+    <p>Met Tab kun je inspringen.</p>
+    <div class="notitie" id="notitie" contenteditable="true" role="textbox" aria-multiline="true"
+         aria-labelledby="notitie-kop"></div>
+    <div class="opvulling"></div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p><a href="mailto:voorbeeld@example.org">Stuur een e-mail</a></p>
+  </section>
+</main>
+
+<div class="overlay" id="overlay">
+  <div class="dialoog">
+    <h2>Perceel bewaren</h2>
+    <label>Naam voor deze bewaarde keuze <input id="naam"></label>
+    <button type="button" class="knop" onclick="sluitDialoog()">Bewaren</button>
+    <span class="knop" onclick="sluitDialoog()">Sluiten</span>
+  </div>
+</div>
+
+<script>
+  function kies(el) { document.getElementById('keuze').textContent = el.textContent + ' gekozen.'; }
+  function openDialoog() { document.getElementById('overlay').classList.add('open'); }
+  function sluitDialoog() { document.getElementById('overlay').classList.remove('open'); }
+
+  // Tab in de notitie voegt een inspringing toe.
+  document.getElementById('notitie').addEventListener('keydown', function (e) {
+    if (e.key === 'Tab') {
+      e.preventDefault();
+      document.execCommand('insertText', false, '\t');
+    }
+  });
+
+  // Sneltoets op de hele pagina.
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'z') { document.getElementById('zoek').value = ''; }
+  });
+</script>
+</body>
+</html>

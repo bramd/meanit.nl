@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demo: sneltoetsen met één teken</title>
+<style>
+  body { margin: 0; font: 20px/1.5 system-ui, sans-serif; color: #1c2b33; }
+  main { max-width: 900px; margin: 0 auto; padding: 24px; }
+  :focus-visible { outline: 3px solid #0b57d0; outline-offset: 2px; }
+  .video { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 24px; }
+  iframe { width: 100%; aspect-ratio: 16 / 9; border: 0; }
+  code { background: #eef2f4; padding: 0 4px; }
+</style>
+<style>
+  .terug-balk { margin: 0; padding: 8px 16px; background: #eef2f4; font: 16px/1.5 system-ui, sans-serif; }
+  .terug-balk a { color: #0b4f8a; }
+  .terug-balk a:focus-visible { outline: 3px solid #0b57d0 !important; outline-offset: 2px; }
+</style>
+</head>
+<body>
+<p class="terug-balk"><a href="https://meanit.nl/trainingen/wcag-specialist/dag4/">Terug naar het overzicht</a></p>
+<main>
+  <h1>Sneltoetsen met één teken (2.1.4)</h1>
+  <p>Klik of tab in de speler en druk op <kbd>k</kbd>, <kbd>m</kbd>, <kbd>f</kbd> of een cijfer.</p>
+  <div class="video">
+    <figure>
+      <iframe src="https://www.youtube-nocookie.com/embed/20SHvU2PKsM" title="Video met sneltoetsen aan (standaard)" allowfullscreen></iframe>
+      <figcaption>Standaard: sneltoetsen aan</figcaption>
+    </figure>
+    <figure>
+      <iframe src="https://www.youtube-nocookie.com/embed/20SHvU2PKsM?disablekb=1" title="Video met sneltoetsen uit" allowfullscreen></iframe>
+      <figcaption>Met <code>?disablekb=1</code>: sneltoetsen uit</figcaption>
+    </figure>
+  </div>
+  <p>De sneltoetsen werken alleen als de speler focus heeft. Toch geldt de uitzondering voor focus niet:
+     de speler bestaat uit meerdere bedieningselementen, niet uit één component.</p>
+</main>
+</body>
+</html>
